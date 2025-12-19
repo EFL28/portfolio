@@ -1,0 +1,49 @@
+---
+import { Moon, Sun } from "@lucide/astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navItems = [
+  {
+    title: "About",
+    label: "about",
+    url: "/#about",
+  },
+  {
+    title: "Projects",
+    label: "projects",
+    url: "/#projects",
+  },
+  {
+    title: "Contact",
+    label: "contact",
+    url: "mailto:elian_fl@hotmail.com",
+  },
+];
+---
+
+<header
+  class="flex justify-between items-center py-3 w-[90%] max-w-4xl mx-auto"
+>
+  <a
+    href="/"
+    class="text-black dark:text-white font-bold cursor-pointer hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+  >
+    Elián
+  </a>
+
+  <nav class="flex flex-row gap-x-5 items-center">
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-gray-600 dark:hover:text-gray-400"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+
+    <ThemeToggle />
+  </nav>
+</header>

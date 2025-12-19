@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* transición cambio de cambio de color */
+html {
+  transition: background-color 0.3s ease;
+}
