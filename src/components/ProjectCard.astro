@@ -1,0 +1,72 @@
+---
+import GithubIcon from "simple-icons-astro/Github";
+import { ExternalLink } from "@lucide/astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  github: string;
+  tech_stack: Array<{ name: string; icon: any }>;
+  lang: string;
+}
+
+const { title, description, image, url, github, tech_stack, lang } =
+  Astro.props;
+
+const t = useTranslations(lang as "es" | "en" | "cat");
+---
+
+<article
+  class="min-w-[85%] md:min-w-[45%] lg:min-w-[31%] snap-center md:snap-start group flex flex-col gap-4"
+>
+  <div
+    class="overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 aspect-video shadow-sm"
+  >
+    <img
+      src={image}
+      alt={title}
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
+
+  <div class="flex flex-col gap-3 px-1">
+    <h3 class="text-2xl font-bold">{title}</h3>
+
+    <div class="flex gap-3">
+      {
+        tech_stack.map((tech) => (
+          <div
+            title={t.name}
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition-colors"
+          >
+            <tech.icon size={20} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="text-text-light dark:text-text-dark text-sm line-clamp-3">
+      {description}
+    </p>
+
+    <div class="flex gap-4 mt-2">
+      <a
+        href={github}
+        class="flex items-center gap-1 text-sm font-medium hover:text-accent-light transition-colors"
+      >
+        <GithubIcon size={18} />
+        {t("projects.code")}
+      </a>
+      <a
+        href={url}
+        class="flex items-center gap-1 text-sm font-medium hover:text-accent-light transition-colors"
+      >
+        <ExternalLink size={18} />
+        {t("projects.liveDemo")}
+      </a>
+    </div>
+  </div>
+</article>

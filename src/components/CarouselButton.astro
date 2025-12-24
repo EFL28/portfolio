@@ -1,0 +1,35 @@
+---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+
+interface Props {
+  id: string;
+  direction: "left" | "right";
+  variant?: "desktop" | "mobile";
+}
+
+const { id, direction, variant = "desktop" } = Astro.props;
+
+// css default
+const baseClasses =
+  "cursor-pointer rounded-full border border-gray-200 dark:border-white/10 transition-all active:scale-95";
+
+// css custom for variant
+const variantClasses =
+  variant === "desktop"
+    ? "hidden md:flex p-2 hover:bg-gray-100 dark:hover:bg-white/5"
+    : "flex p-3 bg-gray-100 dark:bg-white/5";
+---
+
+<button
+  id={id}
+  class:list={[baseClasses, variantClasses]}
+  aria-label={direction === "left" ? "Anterior" : "Siguiente"}
+>
+  {
+    direction === "left" ? (
+      <ChevronLeft size={variant === "mobile" ? 20 : 24} />
+    ) : (
+      <ChevronRight size={variant === "mobile" ? 20 : 24} />
+    )
+  }
+</button>

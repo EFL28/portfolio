@@ -9,6 +9,11 @@ import NextJsIcon from "simple-icons-astro/Nextdotjs";
 import NestJsIcon from "simple-icons-astro/Nestjs";
 import PostgreSQLIcon from "simple-icons-astro/Postgresql";
 import MongoDBIcon from "simple-icons-astro/Mongodb";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import SkillItem from "./SkillItem.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const SKILLS = [
   {
@@ -55,21 +60,9 @@ const SKILLS = [
 ---
 
 <section class="flex flex-col gap-y-6">
-  <h2 class="text-2xl font-bold">Tech Stack</h2>
+  <h2 class="text-2xl font-bold">{t("techStack")}</h2>
 
   <div class="flex flex-wrap gap-4">
-    {
-      SKILLS.map((tech) => (
-        <div class="group relative flex flex-col items-center">
-          <div class="p-3 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500 transition-all duration-300">
-            <tech.icon size={36} />
-          </div>
-
-          <span class="absolute -top-10 scale-0 transition-all duration-200 rounded bg-gray-800 dark:bg-gray-200 px-2 py-1 text-xs text-white dark:text-black font-medium group-hover:scale-100 shadow-lg">
-            {tech.name}
-          </span>
-        </div>
-      ))
-    }
+    {SKILLS.map((tech) => <SkillItem name={tech.name} icon={tech.icon} />)}
   </div>
 </section>

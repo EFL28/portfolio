@@ -1,8 +1,37 @@
 @import "tailwindcss";
 
+@import "@fontsource-variable/space-grotesk";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* transición cambio de cambio de color */
 html {
   transition: background-color 0.3s ease;
+}
+
+@theme {
+  /* background colors*/
+  --color-light-space: #f8f7f4; /*light */
+  --color-dark-space: #051118; /*dark */
+
+  /* primary */
+  --color-primary-light: #2f27ce;
+  --color-primary-dark: #3a31d8;
+
+  /* secondary */
+  --color-secondary-light: #dedcff;
+  --color-secondary-dark: #9ca3af;
+
+  /* accent */
+  --color-accent-light: #433bff;
+  --color-accent-dark: #0600c2;
+
+  /* text */
+  --color-text-light: #050315;
+  --color-text-dark: #ebe9fc;
+  --color-text-muted-light: #6b7280;
+  --color-text-muted-dark: #9ca3af;
+
+  /* También puedes ajustar fuentes aquí para el look minimalista */
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }

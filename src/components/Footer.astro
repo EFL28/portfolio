@@ -1,5 +1,10 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
 const currentYear = new Date().getFullYear();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -15,10 +20,11 @@ const currentYear = new Date().getFullYear();
       <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
       ></span>
     </span>
-    <p class="text-sm">Disponible para nuevos proyectos</p>
+    <p class="text-sm">{t("footer.availability")}</p>
   </div>
 
   <p class="text-sm">
-    © {currentYear} Elián Fernández. Construido con Astro.
+    © {currentYear}
+    {t("footer")}
   </p>
 </footer>
