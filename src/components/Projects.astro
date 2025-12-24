@@ -1,0 +1,79 @@
+---
+import { ExternalLink } from "@lucide/astro";
+import ReactIcon from "simple-icons-astro/React";
+import TailwindcssIcon from "simple-icons-astro/Tailwindcss";
+import AstroIcon from "simple-icons-astro/Astro";
+import GithubIcon from "simple-icons-astro/Github";
+
+const PROJECTS = [
+  {
+    title: "Project Name",
+    description:
+      "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
+    url: "#",
+    github: "#",
+    image: "/projects/project1.webp",
+    tech_stack: [
+      { name: "React", icon: ReactIcon },
+      { name: "Astro", icon: AstroIcon },
+      { name: "Tailwind", icon: TailwindcssIcon },
+    ],
+  },
+];
+---
+
+<section id="projects" class="flex flex-col gap-y-10">
+  <h2 class="text-3xl font-bold">Proyectos</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    {
+      PROJECTS.map(({ title, image, description, tech_stack, url, github }) => (
+        <article class="group flex flex-col gap-4">
+          <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm">
+            <img
+              src={image}
+              alt={title}
+              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div class="flex flex-col gap-3 px-1">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+              {title}
+            </h3>
+
+            <div class="flex gap-3 text-gray-600 dark:text-gray-400">
+              {tech_stack.map((tech) => (
+                <div
+                  title={tech.name}
+                  class="text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors cursor-help"
+                >
+                  <tech.icon size={22} />
+                </div>
+              ))}
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+              {description}
+            </p>
+
+            <div class="flex gap-4 mt-2">
+              <a
+                href={github}
+                class="flex items-center gap-1 text-sm font-medium hover:text-blue-500 transition-colors"
+              >
+                <GithubIcon size={18} /> Code
+              </a>
+              <a
+                href={url}
+                class="flex items-center gap-1 text-sm font-medium hover:text-blue-500 transition-colors"
+              >
+                <ExternalLink size={18} /> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

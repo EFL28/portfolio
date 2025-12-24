@@ -1,3 +1,13 @@
+---
+import ProfileDescription from "./ProfileDescription.astro";
+import ProfileHeader from "./ProfileHeader.astro";
+---
+
 <section>
-    
+  <div
+    class="flex flex-col md:flex-row gap-10 md:gap-12 items-center md:items-start text-center md:text-left"
+  >
+    <ProfileHeader />
+    <ProfileDescription />
+  </div>
 </section>

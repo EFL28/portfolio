@@ -4,10 +4,10 @@ import { Moon, Sun } from "@lucide/astro";
 
 <button
   id="themeToggle"
-  class="cursor-pointer p-2 border rounded-full bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600"
+  class="flex p-2 transition hover:scale-125 cursor-pointer border-none bg-transparent"
 >
-  <span class="sun hidden dark:inline"><Sun size={16} /></span>
-  <span class="moon inline dark:hidden"><Moon size={16} /></span>
+  <span class="sun hidden dark:inline text-yellow-400"><Sun size={18} /></span>
+  <span class="moon inline dark:hidden text-zinc-600"><Moon size={18} /></span>
 </button>
 
 <script is:inline>

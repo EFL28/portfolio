@@ -1,0 +1,37 @@
+---
+import { languages } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
+import SpanishFlag from "../icons/flags/Es.astro";
+import CatalanFlag from "../icons/flags/Cat.astro";
+import EnglishFlag from "../icons/flags/En.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const flags = {
+  es: SpanishFlag,
+  en: EnglishFlag,
+  cat: CatalanFlag,
+};
+---
+
+<div class="flex gap-2 items-center">
+  {
+    Object.entries(languages).map(([code, label]) => {
+      const Flag = flags[code as keyof typeof flags];
+      return (
+        <a
+          href={code === "es" ? "/" : `/${code}/`}
+          class={`flex items-center justify-center w-6 h-6 md:w-7 md:h-7 rounded-full overflow-hidden transition-all 
+          ${
+            currentLang === code
+              ? "shadow-sm"
+              : "border-transparent grayscale opacity-60 hover:opacity-100 hover:grayscale-0"
+          }`}
+          aria-label={`Cambiar a ${label}`}
+        >
+          <Flag class="w-full h-full object-cover" />
+        </a>
+      );
+    })
+  }
+</div>

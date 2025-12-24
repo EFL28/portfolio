@@ -1,0 +1,52 @@
+---
+import { Mail, Linkedin, Github } from "@lucide/astro";
+
+const navItems = [
+  {
+    title: "Email",
+    label: "email",
+    url: "mailto:elian_fl@hotmail.com",
+    icon: Mail,
+  },
+  {
+    title: "Github",
+    label: "github",
+    url: "https://github.com/EFL28",
+    icon: Github,
+  },
+  {
+    title: "LinkedIn",
+    label: "linkedin",
+    url: "https://linkedin.com/in/elian-fernandez-labella",
+    icon: Linkedin,
+  },
+];
+---
+
+<div class="flex flex-col items-center md:items-start gap-6 w-full md:w-40">
+  <img
+    src="/tu-foto.jpg"
+    alt="Elián"
+    class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover bg-gray-200 dark:bg-zinc-800 shadow-xl"
+  />
+
+  <ul class="flex flex-row md:flex-col gap-6 md:gap-2 justify-center">
+    {
+      navItems.map(({ title, label, url, icon: Icon }) => (
+        <li>
+          <a
+            href={url}
+            target="_blank"
+            class="flex items-center gap-2 text-sm hover:text-blue-500 transition-colors"
+            aria-label={label}
+          >
+            <>
+              <Icon size={20} />
+              <span class="hidden md:inline">{title}</span>
+            </>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

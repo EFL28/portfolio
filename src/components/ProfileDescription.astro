@@ -1,0 +1,23 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="flex flex-col gap-6 max-w-2xl">
+  <h1 class="text-5xl font-bold tracking-tight">
+    {t("profileDescription.greeting")}
+  </h1>
+
+  <div
+    class="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+  >
+    <p>
+      {t("profileDescription.description")}
+    </p>
+    <p>
+      {t("profileDescription.currentFocus")}
+    </p>
+  </div>
+</div>

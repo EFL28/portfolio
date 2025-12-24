@@ -1,0 +1,75 @@
+---
+import ReactIcon from "simple-icons-astro/React";
+import TailwindcssIcon from "simple-icons-astro/Tailwindcss";
+import AstroIcon from "simple-icons-astro/Astro";
+import JavascriptIcon from "simple-icons-astro/Javascript";
+import NodeJsIcon from "simple-icons-astro/Nodedotjs";
+import TypeScriptIcon from "simple-icons-astro/Typescript";
+import NextJsIcon from "simple-icons-astro/Nextdotjs";
+import NestJsIcon from "simple-icons-astro/Nestjs";
+import PostgreSQLIcon from "simple-icons-astro/Postgresql";
+import MongoDBIcon from "simple-icons-astro/Mongodb";
+
+const SKILLS = [
+  {
+    name: "JavaScript",
+    icon: JavascriptIcon,
+  },
+  {
+    name: "TypeScript",
+    icon: TypeScriptIcon,
+  },
+  {
+    name: "React",
+    icon: ReactIcon,
+  },
+  {
+    name: "Astro",
+    icon: AstroIcon,
+  },
+  {
+    name: "Next.js",
+    icon: NextJsIcon,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: TailwindcssIcon,
+  },
+  {
+    name: "Node.js",
+    icon: NodeJsIcon,
+  },
+  {
+    name: "NestJS",
+    icon: NestJsIcon,
+  },
+  {
+    name: "PostgreSQL",
+    icon: PostgreSQLIcon,
+  },
+  {
+    name: "MongoDB",
+    icon: MongoDBIcon,
+  },
+];
+---
+
+<section class="flex flex-col gap-y-6">
+  <h2 class="text-2xl font-bold">Tech Stack</h2>
+
+  <div class="flex flex-wrap gap-4">
+    {
+      SKILLS.map((tech) => (
+        <div class="group relative flex flex-col items-center">
+          <div class="p-3 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500 transition-all duration-300">
+            <tech.icon size={36} />
+          </div>
+
+          <span class="absolute -top-10 scale-0 transition-all duration-200 rounded bg-gray-800 dark:bg-gray-200 px-2 py-1 text-xs text-white dark:text-black font-medium group-hover:scale-100 shadow-lg">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</section>
