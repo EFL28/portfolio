@@ -16,12 +16,14 @@ export const languages = {
 export const ui = {
   es: {
     //___HEADER
+    "nav.home": "Inicio",
     "nav.about": "Sobre mí",
+    "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",
     "nav.contact": "Contacto",
 
     //___FOOTER
-    footer: "Elián Fernández. Todos los derechos reservados.",
+    footer: "Elián Fernández. Casi todos los derechos reservados.",
     "footer.availability": "Disponible para nuevos proyectos.",
 
     //___PROFILE DESCRIPTION
@@ -66,12 +68,14 @@ export const ui = {
 
   en: {
     //___HEADER
+    "nav.home": "Home",
     "nav.about": "About",
+    "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
 
     //___FOOTER
-    footer: "Elián Fernández. All rights reserved.",
+    footer: "Elián Fernández. Almost all rights reserved.",
     "footer.availability": "Available for new projects.",
 
     //___PROFILE DESCRIPTION
@@ -117,12 +121,14 @@ export const ui = {
 
   cat: {
     //___HEADER
+    "nav.home": "Inici",
     "nav.about": "Sobre mi",
+    "nav.experience": "Experiència",
     "nav.projects": "Projectes",
     "nav.contact": "Contacte",
 
     //___FOOTER
-    footer: "Elián Fernández. Tots els drets reservats.",
+    footer: "Elián Fernández. Gairebé tots els drets reservats.",
     "footer.availability": "Disponible per a nous projectes.",
 
     //___PROFILE DESCRIPTION

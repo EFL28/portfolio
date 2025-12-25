@@ -85,8 +85,8 @@ const PROJECTS = [
     </h2>
 
     <div class="hidden md:flex gap-x-2">
-      <CarouselButton id="prevBtn" direction="left" />
-      <CarouselButton id="nextBtn" direction="right" />
+      <CarouselButton id="prevBtn" direction="left" variant="desktop" />
+      <CarouselButton id="nextBtn" direction="right" variant="desktop" />
     </div>
   </div>
 
@@ -127,8 +127,7 @@ const PROJECTS = [
 </style>
 
 <script>
-  // Función para inicializar la lógica
-  const initCarousel = () => {
+  function initCarousel() {
     const container = document.getElementById("project-container");
     const nextBtns = [
       document.getElementById("nextBtn"),
@@ -143,19 +142,26 @@ const PROJECTS = [
 
     const scrollAmount = () => container.offsetWidth * 0.8;
 
-    nextBtns.forEach((btn) =>
-      btn?.addEventListener("click", () => {
-        container.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-      })
-    );
+    // handlers
+    const handleNext = () => {
+      container.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+    };
 
-    prevBtns.forEach((btn) =>
-      btn?.addEventListener("click", () => {
-        container.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-      })
-    );
-  };
+    const handlePrev = () => {
+      container.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+    };
 
-  // Se ejecuta en la carga inicial y en cambios de página (Isla de interactividad)
-  document.addEventListener("astro:page-load", initCarousel);
+    // remove listeners and new ones
+    nextBtns.forEach((btn) => {
+      btn?.removeEventListener("click", handleNext);
+      btn?.addEventListener("click", handleNext);
+    });
+
+    prevBtns.forEach((btn) => {
+      btn?.removeEventListener("click", handlePrev);
+      btn?.addEventListener("click", handlePrev);
+    });
+  }
+
+  initCarousel();
 </script>

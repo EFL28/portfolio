@@ -2,6 +2,14 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +19,8 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Elián Fernández | Portfolio</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
   </head>
   <body
     class="bg-light-space text-text-light dark:bg-dark-space dark:text-text-dark transition-colors duration-300"

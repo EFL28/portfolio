@@ -12,26 +12,104 @@ const flags = {
   en: EnglishFlag,
   cat: CatalanFlag,
 };
+
+const langLabels: Record<string, string> = {
+  es: "Español",
+  en: "English",
+  cat: "Català",
+};
+
+const CurrentFlag = flags[currentLang as keyof typeof flags];
 ---
 
-<div class="flex gap-2 items-center">
-  {
-    Object.entries(languages).map(([code, label]) => {
-      const Flag = flags[code as keyof typeof flags];
-      return (
-        <a
-          href={code === "es" ? "/" : `/${code}/`}
-          class={`flex items-center justify-center w-6 h-6 md:w-7 md:h-7 rounded-full overflow-hidden transition-all 
-          ${
-            currentLang === code
-              ? "shadow-sm"
-              : "border-transparent grayscale opacity-60 hover:opacity-100 hover:grayscale-0"
-          }`}
-          aria-label={`Cambiar a ${label}`}
-        >
-          <Flag class="w-full h-full object-cover" />
-        </a>
-      );
-    })
-  }
+<div class="relative inline-block text-left" id="language-dropdown">
+  <button
+    type="button"
+    class="cursor-pointer flex items-center justify-center size-7 md:size-8 rounded-full overflow-hidden border border-gray-200 dark:border-white/10 hover:scale-110 transition-all focus:outline-none"
+    id="dropdown-button"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-controls="dropdown-menu"
+    aria-label={`Language, ${langLabels[currentLang]}`}
+  >
+    <CurrentFlag class="size-full object-cover" />
+  </button>
+
+  <div
+    class="absolute right-0 mt-2 w-32 origin-top-right rounded-xl bg-white/90 dark:bg-dark-space/90 backdrop-blur-md border border-gray-200 dark:border-white/10 shadow-xl opacity-0 invisible scale-95 transition-all duration-200 z-50 overflow-hidden"
+    id="dropdown-menu"
+    role="menu"
+  >
+    <div class="py-1">
+      {
+        Object.entries(languages).map(([code, label]) => {
+          const Flag = flags[code as keyof typeof flags];
+          const isSelected = currentLang === code;
+
+          return (
+            <a
+              href={code === "es" ? "/" : `/${code}/`}
+              class={`flex items-center px-4 py-2 text-xs md:text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors ${isSelected ? "text-accent-light font-bold bg-gray-50 dark:bg-white/5" : "text-gray-700 dark:text-gray-300"}`}
+              role="menuitem"
+            >
+              <div class="size-4 md:size-5 rounded-full overflow-hidden mr-3 shrink-0">
+                <Flag class="size-full object-cover" />
+              </div>
+              {langLabels[code]}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
 </div>
+
+<style>
+  #language-dropdown.open #dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+  }
+</style>
+
+<script>
+  function setupDropdown() {
+    const dropdown = document.getElementById("language-dropdown");
+    const button = document.getElementById("dropdown-button");
+
+    if (!dropdown || !button) return;
+
+    // click toggle
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains("open");
+      if (isOpen) {
+        dropdown.classList.remove("open");
+        button.setAttribute("aria-expanded", "false");
+      } else {
+        dropdown.classList.add("open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    // close with click outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target as Node)) {
+        dropdown.classList.remove("open");
+        button.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // close with ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        dropdown.classList.remove("open");
+        button.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  setupDropdown();
+
+  document.addEventListener("astro:after-swap", setupDropdown);
+</script>

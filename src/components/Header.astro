@@ -9,10 +9,11 @@ const t = useTranslations(lang);
 const langPath = lang === "es" ? "" : `/${lang}`;
 
 const navItems = [
-  // fix urls son 3 idiomas cat, es, en
-  { title: t("nav.about"), url: `${langPath}/#about` }, // FIX
+  // añadir uno de inicio o home para volver al prncipio (arriba) //TODO
+  { title: t("nav.home"), url: `${langPath}/` },
+  { title: t("nav.about"), url: `${langPath}/#about` },
+  { title: t("nav.experience"), url: `${langPath}/#experience` },
   { title: t("nav.projects"), url: `${langPath}/#projects` },
-  { title: t("nav.contact"), url: "mailto:elian_fl@hotmail.com" },
 ];
 ---
 
@@ -38,8 +39,8 @@ const navItems = [
     </div>
 
     <div class="flex items-center gap-x-1 md:gap-x-2 pl-1">
-      <LanguagePicker client:idle />
-      <ThemeToggle client:load />
+      <LanguagePicker />
+      <ThemeToggle />
     </div>
   </nav>
 </header>
