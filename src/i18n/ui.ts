@@ -41,21 +41,21 @@ export const ui = {
     "experience.LMC.company": "LetMeCharge",
     "experience.LMC.date": "Julio 2024 - Presente",
     "experience.LMC.description":
-      "Desarrollo de aplicaciones web y APIs utilizando NestJs, con despliegue en AWS.",
+      "Desarrollo y mantenimiento de lógica de negocio utilizando NestJS y TypeScript. Gestión de bases de datos NoSQL (MongoDB). Uso de admin frameworks como React Admin y Refine.",
 
     // Prácticas
-    "experience.internship.title": "Desarrollador Web Junior",
+    "experience.internship.title": "Desarrollador Web en prácticas",
     "experience.internship.company": "Videologic Analytics",
     "experience.internship.date": "Octubre 2023 - Febrero 2024",
     "experience.internship.description":
-      "Desarrollo de sitios web y mantenimiento utilizando HTML, CSS y JavaScript.",
+      "Desarrollo de interfaces web utilizando HTML, CSS y JavaScript. Diseño e implementación de un dashboard interactivo con gridster.js.",
 
     // Monlau
     "experience.monlau.title": "Grado Superior en DAW",
     "experience.monlau.company": "Centro de Estudios Monlau",
     "experience.monlau.date": "Septiembre 2022 - Junio 2024",
     "experience.monlau.description":
-      "Especialización en desarrollo de aplicaciones web.",
+      "Especialización en desarrollo de aplicaciones web. Javascript, React, Angular, Java, PHP, Node.js y bases de datos SQL. Proyecto final: Desarrollo de un backend con NestJs.",
 
     //_____PROJECTS SECTION
     projects: "Proyectos",
@@ -94,21 +94,21 @@ export const ui = {
     "experience.LMC.company": "LetMeCharge",
     "experience.LMC.date": "July 2024 - Present",
     "experience.LMC.description":
-      "Developing web applications and APIs using NestJs, deployed on AWS.",
+      "Developing and maintaining business logic using NestJS and TypeScript. Managing NoSQL databases (MongoDB). Using admin frameworks like React Admin and Refine.",
 
     // Prácticas
     "experience.internship.title": "Junior Web Developer",
     "experience.internship.company": "Videologic Analytics",
     "experience.internship.date": "October 2023 - February 2024",
     "experience.internship.description":
-      "Developed and maintained websites using HTML, CSS, and JavaScript.",
+      "Developing web interfaces using HTML, CSS, and JavaScript. Designing and implementing an interactive dashboard with gridster.js.",
 
     // Monlau
     "experience.monlau.title": "Grado Superior en DAW",
     "experience.monlau.company": "Centro de Estudios Monlau",
     "experience.monlau.date": "September 2022 - June 2024",
     "experience.monlau.description":
-      "Especialización en desarrollo de aplicaciones web.",
+      "Specialization in web application development. Javascript, React, Angular, Java, PHP, Node.js, and SQL databases. Final project: Development of a backend with NestJs.",
 
     //_____PROJECTS SECTION
     projects: "Projects",
@@ -147,21 +147,21 @@ export const ui = {
     "experience.LMC.company": "LetMeCharge",
     "experience.LMC.date": "Juliol 2024 - Present",
     "experience.LMC.description":
-      "Desenvolupament d'aplicacions web i APIs utilitzant NestJs, desplegades a AWS.",
+      "Desenvolupament i manteniment de la lògica de negoci utilitzant NestJS i TypeScript. Gestió de bases de dades NoSQL (MongoDB). Ús de frameworks d'administració com React Admin i Refine.",
 
     // Prácticas
-    "experience.internship.title": "Desenvolupador Web Junior",
+    "experience.internship.title": "Desenvolupador Web en pràctiques",
     "experience.internship.company": "Videologic Analytics",
     "experience.internship.date": "Octubre 2023 - Febrer 2024",
     "experience.internship.description":
-      "Desenvolupament i manteniment de llocs web utilitzant HTML, CSS i JavaScript.",
+      "Desenvolupament d'interfícies web utilitzant HTML, CSS i JavaScript. Disseny i implementació d'un dashboard interactiu amb gridster.js.",
 
     // Monlau
     "experience.monlau.title": "Grau Superior en DAW",
     "experience.monlau.company": "Centre d'Estudis Monlau",
     "experience.monlau.date": "Setembre 2022 - Juny 2024",
     "experience.monlau.description":
-      "Especialització en desenvolupament d'aplicacions web.",
+      "Especialització en desenvolupament d'aplicacions web. Javascript, React, Angular, Java, PHP, Node.js i bases de dades SQL. Projecte final: Desenvolupament d'un backend amb NestJs.",
 
     //_____PROJECTS SECTION
     projects: "Projectes",
