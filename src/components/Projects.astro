@@ -1,7 +1,7 @@
 ---
-import ReactIcon from "simple-icons-astro/React";
+import NextjsIcon from "simple-icons-astro/Nextdotjs";
 import TailwindcssIcon from "simple-icons-astro/Tailwindcss";
-import AstroIcon from "simple-icons-astro/Astro";
+import SupabaseIcon from "simple-icons-astro/Supabase";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import ProjectCard from "./ProjectCard.astro";
 import CarouselButton from "./CarouselButton.astro";
@@ -11,16 +11,16 @@ const t = useTranslations(lang);
 
 const PROJECTS = [
   {
-    title: "Project Name 1",
+    title: "Sindic Memes",
     description:
-      "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
-    url: "#",
-    github: "#",
-    image: "/projects/project1.webp",
+      "Web para guardar memes (fotos, videos, gifs, posts de redes sociales) y compartirlos fácilmente con tus amigos.",
+    url: "https://sindic-memes.vercel.app/",
+    github: "https://github.com/EFL28/sindic-memes",
+    image: "/projects/SindicMemes_preview.jpg",
     tech_stack: [
-      { name: "React", icon: ReactIcon },
-      { name: "Astro", icon: AstroIcon },
+      { name: "NextJs", icon: NextjsIcon },
       { name: "Tailwind", icon: TailwindcssIcon },
+      { name: "Supabase", icon: SupabaseIcon },
     ],
   },
   // {
@@ -30,45 +30,6 @@ const PROJECTS = [
   //   url: "#",
   //   github: "#",
   //   image: "/projects/project2.webp",
-  //   tech_stack: [
-  //     { name: "React", icon: ReactIcon },
-  //     { name: "Astro", icon: AstroIcon },
-  //     { name: "Tailwind", icon: TailwindcssIcon },
-  //   ],
-  // },
-  // {
-  //   title: "Project Name 3",
-  //   description:
-  //     "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
-  //   url: "#",
-  //   github: "#",
-  //   image: "/projects/project3.webp",
-  //   tech_stack: [
-  //     { name: "React", icon: ReactIcon },
-  //     { name: "Astro", icon: AstroIcon },
-  //     { name: "Tailwind", icon: TailwindcssIcon },
-  //   ],
-  // },
-  // {
-  //   title: "Project Name 4",
-  //   description:
-  //     "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
-  //   url: "#",
-  //   github: "#",
-  //   image: "/projects/project4.webp",
-  //   tech_stack: [
-  //     { name: "React", icon: ReactIcon },
-  //     { name: "Astro", icon: AstroIcon },
-  //     { name: "Tailwind", icon: TailwindcssIcon },
-  //   ],
-  // },
-  // {
-  //   title: "Project Name 5",
-  //   description:
-  //     "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
-  //   url: "#",
-  //   github: "#",
-  //   image: "/projects/project5.webp",
   //   tech_stack: [
   //     { name: "React", icon: ReactIcon },
   //     { name: "Astro", icon: AstroIcon },
