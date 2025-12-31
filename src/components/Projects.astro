@@ -1,6 +1,11 @@
 ---
 import NextjsIcon from "simple-icons-astro/Nextdotjs";
+import NestjsIcon from "simple-icons-astro/Nestjs";
 import TailwindcssIcon from "simple-icons-astro/Tailwindcss";
+import TypescriptIcon from "simple-icons-astro/Typescript";
+import RedisIcon from "simple-icons-astro/Redis";
+import PostgresqlIcon from "simple-icons-astro/Postgresql";
+import PrismaIcon from "simple-icons-astro/Prisma";
 import SupabaseIcon from "simple-icons-astro/Supabase";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import ProjectCard from "./ProjectCard.astro";
@@ -18,24 +23,42 @@ const PROJECTS = [
     github: "https://github.com/EFL28/sindic-memes",
     image: "/projects/SindicMemes_preview.jpg",
     tech_stack: [
+      { name: "Typescript", icon: TypescriptIcon },
       { name: "NextJs", icon: NextjsIcon },
       { name: "Tailwind", icon: TailwindcssIcon },
       { name: "Supabase", icon: SupabaseIcon },
     ],
+    status: "in_progress",
   },
-  // {
-  //   title: "Project Name 2",
-  //   description:
-  //     "Una breve descripción de lo que hace el proyecto y el problema que resuelve.",
-  //   url: "#",
-  //   github: "#",
-  //   image: "/projects/project2.webp",
-  //   tech_stack: [
-  //     { name: "React", icon: ReactIcon },
-  //     { name: "Astro", icon: AstroIcon },
-  //     { name: "Tailwind", icon: TailwindcssIcon },
-  //   ],
-  // },
+  {
+    title: "QuiniSindic Frontend",
+    description:
+      "Plataforma de resultados y predicciones deportivas con amigos.",
+    url: "https://sindic.xyz/",
+    github: "https://github.com/QuiniSindic/QuinisindicFrontend",
+    image: "/projects/QuinisindicFrontend_preview.jpg",
+    tech_stack: [
+      { name: "Typescript", icon: TypescriptIcon },
+      { name: "NextJs", icon: NextjsIcon },
+      { name: "Tailwind", icon: TailwindcssIcon },
+    ],
+    status: "in_progress",
+  },
+  {
+    title: "QuiniSindic Backend",
+    description: "API REST para QuiniSindic.",
+    url: "https://api.sindic.xyz/",
+    github: "https://github.com/QuiniSindic/QuinisindicBackend",
+    image: "/projects/QuinisindicBackend_preview.jpg",
+    tech_stack: [
+      { name: "Typescript", icon: TypescriptIcon },
+      { name: "Nestjs", icon: NestjsIcon },
+      { name: "PostgreSQL", icon: PostgresqlIcon },
+      { name: "Prisma", icon: PrismaIcon },
+      { name: "Redis", icon: RedisIcon },
+    ],
+    status: "in_progress",
+  },
 ];
 ---
 
@@ -56,17 +79,28 @@ const PROJECTS = [
     class="flex gap-x-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2 -mx-4 px-4 md:mx-0 md:px-0"
   >
     {
-      PROJECTS.map(({ title, image, description, tech_stack, url, github }) => (
-        <ProjectCard
-          title={title}
-          image={image}
-          description={description}
-          tech_stack={tech_stack}
-          url={url}
-          github={github}
-          lang={lang}
-        />
-      ))
+      PROJECTS.map(
+        ({
+          title,
+          image,
+          description,
+          tech_stack,
+          url,
+          github,
+          status: project_status,
+        }) => (
+          <ProjectCard
+            title={title}
+            image={image}
+            description={description}
+            tech_stack={tech_stack}
+            url={url}
+            github={github}
+            lang={lang}
+            status={project_status as "finished" | "in_progress"}
+          />
+        )
+      )
     }
   </div>
 

@@ -3,6 +3,7 @@ import GithubIcon from "simple-icons-astro/Github";
 import { ExternalLink } from "@lucide/astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
+export type ProjectStatus = "finished" | "in_progress";
 interface Props {
   title: string;
   description: string;
@@ -11,10 +12,22 @@ interface Props {
   github: string;
   tech_stack: Array<{ name: string; icon: any }>;
   lang: string;
+  status: ProjectStatus;
 }
 
-const { title, description, image, url, github, tech_stack, lang } =
+const { title, description, image, url, github, tech_stack, lang, status } =
   Astro.props;
+
+const STATUS_CONFIG = {
+  finished: {
+    label: "project.status.finished",
+    class: "bg-green-600/90 text-white",
+  },
+  in_progress: {
+    label: "project.status.in_progress",
+    class: "bg-yellow-500/90 text-black",
+  },
+} as const;
 
 const t = useTranslations(lang as "es" | "en" | "cat");
 ---
@@ -23,13 +36,23 @@ const t = useTranslations(lang as "es" | "en" | "cat");
   class="min-w-[85%] md:min-w-[45%] lg:min-w-[31%] snap-center md:snap-start group flex flex-col gap-4"
 >
   <div
-    class="overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 aspect-video shadow-sm"
+    class="relative aspect-video overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm"
   >
     <img
       src={image}
       alt={title}
-      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      class="absolute inset-0 h-full w-full object-cover"
     />
+
+    {
+      status && (
+        <span
+          class={`absolute top-3 right-3 px-3 py-1 text-xs font-semibold rounded-full backdrop-blur ${STATUS_CONFIG[status].class}`}
+        >
+          {t(STATUS_CONFIG[status as ProjectStatus].label)}
+        </span>
+      )
+    }
   </div>
 
   <div class="flex flex-col gap-3 px-1">
@@ -40,7 +63,7 @@ const t = useTranslations(lang as "es" | "en" | "cat");
         tech_stack.map((tech) => (
           <div
             title={t.name}
-            class="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-accent-light transition-colors"
           >
             <tech.icon size={20} />
           </div>

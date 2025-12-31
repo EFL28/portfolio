@@ -64,6 +64,10 @@ export const ui = {
 
     //_____TECH STACK SECTION
     techStack: "Tecnologías",
+
+    //_____PROJECT STATUS
+    "project.status.in_progress": "En progreso",
+    "project.status.finished": "Finalizado",
   },
 
   en: {
@@ -117,6 +121,10 @@ export const ui = {
 
     //_____TECH STACK SECTION
     techStack: "Tech Stack",
+
+    //_____PROJECT STATUS
+    "project.status.in_progress": "In Progress",
+    "project.status.finished": "Finished",
   },
 
   cat: {
@@ -170,5 +178,9 @@ export const ui = {
 
     //_____TECH STACK SECTION
     techStack: "Tecnologies",
+
+    //_____PROJECT STATUS
+    "project.status.in_progress": "En progrés",
+    "project.status.finished": "Finalitzat",
   },
 } as const;
